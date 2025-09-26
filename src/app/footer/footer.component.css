@@ -1,0 +1,156 @@
+.footer{
+background-color:rgba(1, 88, 128, .80);
+padding-top: 30px;
+  min-height:265px;
+  position: relative;
+  z-index: 3232;
+}
+
+.foot-div{
+text-align:center;
+}
+
+.foot-div div div {
+  display: inline-block;
+  margin-right: 32px;
+}
+.foot-div div div:last-child{
+  margin-right: 0;
+}
+.rtl .foot-div a {
+  font-family:Raleway-Regular;
+}
+.img-svg img{
+height:21px;
+margin:30px 15px;
+}
+.imag-svg{
+width: 150px;
+margin-bottom: 14px;
+}
+
+.foot-div a{
+text-decoration:none;
+color:#fff;
+font-family: Raleway-Regular;
+}
+.rtl .foot-div{
+  direction: rtl;
+}
+.rtl .foot-div a {
+  font-family:expo-bold;
+}
+.rtl .foot-div div div:last-child {
+
+  margin-right: 32px;
+}
+.rtl .foot-div div div:first-child{
+  margin-right: 0;
+}
+
+
+.copyRights {
+  color:white!important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.copy-rights-text {
+  display: block;
+  font-family: Raleway-Regular;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.powered-by-text {
+  margin-bottom: 0;
+  margin-top: 3px;
+  padding-bottom: 5px;
+}
+
+.copyRights p:last-child a {
+  color:white;
+  font-family: Raleway-Bold;
+  font-size: 15px;
+}
+
+.rtl .copyRights {
+  direction: rtl;
+}
+.tel-div{
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.circle-phone{
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+.fa-phone-alt:hover {
+  color: #fff;
+}
+.floating-button {
+  font-size: 25px;
+  color: white !important;
+  text-decoration: none;
+}
+.floating-button-div {
+  background-color:rgb(102, 153, 204);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.30);
+  position: relative;
+  bottom: 45px;
+  z-index: 1000;
+  cursor: pointer;
+  border: none;
+  outline: white;
+  left: 20px;
+}
+.hotline {
+  font-family:Raleway-Bold;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  position: absolute;
+  bottom: 49px;
+  left: 85px;
+  font-size: 18px;
+  color: #fff;
+  width: 75px;
+}
+@media (max-width:780px) {
+.img-div {
+  display: none!important;
+}
+}
+@media (max-width:700px) {
+  .foot-div div div{
+    margin-right: 18px;
+  }
+  .foot-div div div a{
+    font-size: 13px;
+  }
+  .foot-div div div:last-child{
+    margin-right: 0;
+  }
+  .copyRights{
+    text-align: center;
+  }
+  .copyRights p {
+    width:100%;
+  }
+  .copyRights p:last-child {
+    float:none;
+  }
+}
+@media (max-width: 600px) {
+  .hotline {
+    display: none;
+  }
+  .floating-button-div {
+    bottom: 10px;
+  }
+}
+

@@ -1,0 +1,174 @@
+<div class="{{rtl}}">
+  <div class="home">
+    <div class="swiper-container cat-swiper" dir="{{rtl}}">
+      <div class="swiper-wrapper">
+        <div [style.background-image]="'url(assets/smart-image/sec1-home.jpg)'" class="swiper-slide">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <div class="text-head">
+                  <h1>
+                    {{'Locale.Create The' | translate}}
+                    <br>
+                    {{'Locale.Best Smart Home' | translate}}
+                  </h1>
+                  <p>
+                    {{'Locale.The Future of Smart,' | translate}}
+                    <br>
+                    {{'Locale.Simple,' | translate}}
+                    <br>
+                    {{'Locale.Automated Life' | translate}}
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 butt-head">
+                <div class="st-but-head">
+                  <button routerLink="/{{lang}}/products" class="btn btn-info" type="button">{{'Locale.shopNow' | translate}}
+                    <img src="assets\smart-image\arrow.svg"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scroll"><img src="assets/smart-image/scroll.svg"></div>
+          <ul>
+            <li><a href="{{settings.facebook}}" target="_blank">{{'Locale.Facebook' | translate}}</a></li>
+            <li><a href="{{settings.twitter}}" target="_blank">{{'Locale.Twitter' | translate}}</a></li>
+            <li><a href="{{settings.instagram}}" target="_blank">{{'Locale.Instagram' | translate}}</a></li>
+          </ul>
+        </div>
+        <div *ngFor="let post of swiper ; let last = last " [style.background-image]="'url(' + post.banner + ')'" class="swiper-slide"
+             style="background-repeat: no-repeat; background-position:center; background-size: cover"
+             swiperFinished>
+          <a class="swiper-link" href="{{post.link}}" target="_blank"></a></div>
+      </div>
+    </div>
+  </div>
+  <!--  ------------------------------------------------------------------------------------------------------- -->
+  <section class="section-two">
+    <div class="container section-two-con" >
+      <div class="main-cat"  *ngFor=" let category of categories;">
+        <h1 class="main-cat-title"   routerLink="/{{lang}}/products/{{category.id}}-{{category.name}}"
+        > {{category.name}}
+        </h1>
+        <div class="row" style="margin: 0 20px;" >
+          <div class="col-lg-6 parent-cat-div">
+            <div class="parent-cat"
+                 routerLink="/{{lang}}/products/{{category.id}}-{{category.name}}"
+                 [ngStyle]="{'background-image': 'url(' + category.image + ')'}" > </div>
+          </div>
+          <div class="col-lg-6 swiper-div" >
+            <div class="swiper-container cat-swiper-con">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-cat-slide"
+                     *ngFor=" let subCategory of category.categories;" >
+                  <div class="sub-cat"  [ngStyle]="{'background-image': 'url(' + miniCategory.image + ')'}"
+                       *ngFor=" let miniCategory of subCategory; let i = index;"
+                       routerLink="/{{lang}}/products/{{miniCategory.id}}-{{miniCategory.name}}">
+                      <span class="sub-cat-title" >
+                        {{miniCategory.name}}
+                      </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--  ------------------------------------------------------------------------------------------------------- -->
+  <div class="sec-three" >
+    <div class="container-fluid ">
+      <div *ngFor="let post of mainContent; let i = index">
+        <div *ngIf="i%2" class=" articles-section row">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding:0;">
+            <div [style.background-image]="'url(' + post.image + ')'" class="im-five"
+                 style="background-position: center;background-size: cover;background-repeat: no-repeat"></div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="text-five">
+              <img class="icon-light" src={{post.icon}}>
+              <h1>{{post.title}}</h1>
+              <p>{{post.paragraph}}</p>
+              <button class="btn btn-info" type="button">{{'Locale.Read more' | translate}}
+                <img class="iconarrow" src="assets\smart-image\arrow.svg"></button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="i%2 === 0" class="row articles-section">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first-col-four">
+            <div class="text-four">
+              <img class="icon-pop" src={{post.icon}}>
+              <h1>{{post.title}}</h1>
+              <p>{{post.paragraph}}</p>
+              <button class="btn btn-info" type="button">{{'Locale.Read more' | translate}}
+                <img class="iconarrow" src="assets\smart-image\arrow.svg"></button>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second-col-four">
+            <div [style.background-image]="post.image" class="im-four"
+                 style="background-position: center;background-size: cover;background-repeat: no-repeat"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-four">
+        <div class="container" style="position: relative">
+          <h1>{{'Locale.BestSelling' | translate}}</h1>
+          <div class="box-four">
+            <div class="swiper-container partner-swiper">
+              <div class="swiper-wrapper">
+                <div *ngFor="let product of bestSellingProducts; let i = index" class="swiper-slide one" swiperFinished>
+                  <a routerLink="/{{lang}}/products/{{product.category}}/{{product.id}}-{{product.category}}">
+                    <div class="another-View-style">{{'Locale.New' | translate}}</div>
+                    <div [style.background-image]="'url(' + product.image + ')'" class="product-image">
+                      <img alt="{{product.name}}" src="{{product.image}}">
+                    </div>
+                    <div class="View-style">{{'Locale.View' | translate}}</div>
+                    <div class="text-swipe">
+                      <h2 class="p-title">{{product.name}}</h2>
+                      <p class="type">{{product.brand}}</p>
+                      <span *ngIf="product.priceBeforeDiscount" class="dis-count"
+                            style="color:#E80057;">{{product.priceBeforeDiscount}} {{"Locale.currency" | translate}}
+                        -</span><span>{{product.price}} {{"Locale.currency" | translate}}</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next swiper-button-white best-selling-next"></div>
+          <div class="swiper-button-prev swiper-button-white best-selling-prev"></div>
+        </div>
+      </div>
+      <div class="las-section" style="margin:154px auto;">
+        <div class="container">
+          <div class="fath-box">
+            <div class="book-box"></div>
+            <div class="lay-box"></div>
+            <div class="text-last">
+              <h4>{{'Locale.MakeSmartHomeProject' | translate}}</h4>
+              <p>{{'Locale.smart_home_message' | translate}}</p>
+              <span><a routerLink="/{{lang}}/smart-home"><button class="btn btn-primary"
+                                                                 type="button">{{'Locale.GetStartedNow' | translate}}</button></a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <!-- Swiper -->
+    <h1 class="brands-heading"> {{'Locale.OurPartners' | translate }}</h1>
+    <div class="swiper-container swiper-con">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-brand-slide"
+             *ngFor="let partnerBrand of brands; let i = index;" [ngStyle]="{'background-image': 'url(' + partnerBrand.logo + ')'}"
+             routerLink="/{{lang}}/products/{{partnerBrand.id}}-{{partnerBrand.name}}"></div>
+
+      </div>
+
+    </div>
+    <!--  ------------------------ -->
+  </section>
+</div>

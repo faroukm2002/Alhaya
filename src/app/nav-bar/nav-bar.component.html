@@ -1,0 +1,88 @@
+<div class="container-lg">
+  <div class="row contact-nav">
+    <div  class="col-lg-4    col-md-3   col-sm-6 col-xs contact-nav-item">
+      <a href="tel:00201206569999" class="contact-nav-item-link"> <i class="fas fa-phone-alt"></i> 01206569999 </a>
+    </div>
+    <div  class="col-lg-4    col-md-4   col-sm-6 col-xs contact-nav-item mail-div">
+      <a href = "mailto: info@elhayatsmart.com" class="contact-nav-item-link"> <i class="fas fa-envelope"></i> contactus@alhayatsmart.com </a>
+    </div>
+    <div  class="col-lg-4    col-md-4   contact-nav-item img-div">
+      <a    href="{{settings.facebook}}"   target="_blank"> <img alt="facebook page"  src="assets\smart-image\facebook.svg"></a>
+      <a    href="{{settings.linkIn}}"    target="_blank"> <img alt="linkedin page"  src="assets\smart-image\linkedin.svg"></a>
+      <a    href="{{settings.twitter}}"    target="_blank"> <img alt="twitter page"   src="assets\smart-image\twitter.svg"></a>
+      <a    href="{{settings.instagram}}"  target="_blank"> <img alt="instagram page" src="assets\smart-image\instagram.svg"></a>    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light{{rtl}}" [class.navbar-scrolled]="navScroll" >
+  <div class="col-3">
+    <a id="homeLink" routerLink="/{{lang}}">
+      <img class="logo" src="assets/smart-image/Logo.png" [class.logo-scrolled]="navScroll">
+    </a>
+  </div>
+  <div class="collapse navbar-collapse col-lg-9" #navbar="ngbCollapse" [ngbCollapse]="isCollapsed"
+       id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto main-navigation  col-lg-7">
+      <li class="nav-item col-lg-4">
+        <a class="nav-link" (click)="$event.stopPropagation(); navbar.collapsed=true;isCollapsed=true"
+           routerLink="/{{lang}}">{{'Locale.home' | translate}}</a>
+      </li>
+      <li class="nav-item col-lg-4">
+        <a class="nav-link" style="min-width: 116px"
+           (click)="$event.stopPropagation(); navbar.collapsed=true;isCollapsed=true"
+           routerLink="/{{lang}}/smart-home">{{'Locale.smartHome' | translate}}</a>
+      </li>
+      <li class="nav-item col-lg-4">
+        <!-- <a style="margin-right:40px" class="nav-link" routerLink="/solution"></a> -->
+        <div class="btn-group " >
+          <a routerLink="/{{lang}}/products/"  class="nav-link">
+            {{'Locale.products' | translate}}
+          </a>
+
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto  col-lg-5 last-nav">
+      <li *ngIf="user" ngbDropdown class="personal-data nav-item dropdown-toggle" id="dropdownProfile"
+          ngbDropdownToggle>
+        <div class="dropdown">
+          <div aria-labelledby="dropdownProfile" ngbDropdownMenu >
+            <a ngbDropdownItem routerLink="/{{lang}}/profile">{{"Locale.account" | translate}}</a>
+            <a ngbDropdownItem routerLink="/{{lang}}/orders">{{"Locale.myOrders" | translate}}</a>
+            <a (click)="logOut()" ngbDropdownItem>{{"Locale.logOut" | translate}}</a>
+          </div>
+        </div>
+        <p>{{user.name}}</p>
+        <div class="user-image" [style.background-image]="'url('+user.image+')'">
+        </div>
+      </li>
+      <li *ngIf="!user" class="nav-item">
+        <a  (click)="$event.stopPropagation(); navbar.collapsed=true;isCollapsed=true" class="nav-link" routerLink="/{{lang}}/signup">{{'Locale.signUp' | translate}}</a>
+      </li>
+
+      <li *ngIf="!user" class="nav-item ">
+        <a class="nav-link " (click)="$event.stopPropagation(); navbar.collapsed=true;isCollapsed=true" routerLink="/{{lang}}/login">{{'Locale.login' | translate}}</a>
+      </li>
+      <li class="nav-item basket-icon ">
+        <a (click)="$event.stopPropagation(); navbar.collapsed=true;isCollapsed=true" routerLink="/{{lang}}/cart">
+          <img class="icon-shop" src="assets/smart-image/icon-shop.svg">
+          <span class="count-num">{{basketCount}}</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a (click)="$event.stopPropagation(); navbar.collapsed=true;isCollapsed=true" [routerLink]="switchLangUrl" *ngIf="lang=='ar'">
+          {{'Locale.en' | translate}}
+        </a>
+        <a  (click)="$event.stopPropagation(); navbar.collapsed=true;isCollapsed=true" [routerLink]="switchLangUrl" *ngIf="lang=='en'">
+          {{'Locale.en' | translate}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <button aria-controls="navbarSupportedContent" class="navbar-toggler"
+          [attr.aria-expanded]="!isCollapsed"
+          (click)="isCollapsed = !isCollapsed" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+

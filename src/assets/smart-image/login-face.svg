@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76" height="69" viewBox="0 0 76 69">
+  <defs>
+    <filter id="Rectangle_3477" x="0" y="0" width="76" height="69" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.5" y1="-0.75" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#015880"/>
+      <stop offset="1" stop-color="#01b0ff"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_4415" data-name="Group 4415" transform="translate(-487 -964)">
+    <g transform="matrix(1, 0, 0, 1, 487, 964)" filter="url(#Rectangle_3477)">
+      <g id="Rectangle_3477-2" data-name="Rectangle 3477" transform="translate(9 6)" fill="none" stroke="#01b0ff" stroke-width="1">
+        <rect width="58" height="51" rx="10" stroke="none"/>
+        <rect x="0.5" y="0.5" width="57" height="50" rx="9.5" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_301" data-name="Group 301" transform="translate(44.969 -0.336)">
+      <g id="Group_300" data-name="Group 300" transform="translate(-514 -8334)">
+        <path id="facebook" d="M10.34,28.068H5.846a1.363,1.363,0,0,1-1.362-1.362V16.568H1.862A1.363,1.363,0,0,1,.5,15.206V10.862A1.363,1.363,0,0,1,1.862,9.5H4.484V7.325A7.407,7.407,0,0,1,6.443,2.018,7.055,7.055,0,0,1,11.644,0l3.428.006a1.363,1.363,0,0,1,1.359,1.362V5.4A1.363,1.363,0,0,1,15.07,6.762H12.762c-.7,0-.883.141-.921.184-.063.072-.138.275-.138.835V9.5H14.9a1.384,1.384,0,0,1,.674.171,1.366,1.366,0,0,1,.7,1.191l0,4.344a1.363,1.363,0,0,1-1.362,1.361H11.7V26.706a1.363,1.363,0,0,1-1.362,1.362ZM6.13,26.422h3.927V15.831a.91.91,0,0,1,.909-.909h3.658V11.146h-3.66a.91.91,0,0,1-.909-.909V7.782a2.8,2.8,0,0,1,.551-1.923,2.789,2.789,0,0,1,2.155-.741h2.024V1.65l-3.143-.005c-3.4,0-5.513,2.177-5.513,5.68v2.912a.91.91,0,0,1-.909.909H2.146v3.776H5.221a.91.91,0,0,1,.909.909ZM15.069,1.651h0Zm0,0" transform="translate(985.531 9315.336)" fill="url(#linear-gradient)"/>
+      </g>
+    </g>
+  </g>
+</svg>

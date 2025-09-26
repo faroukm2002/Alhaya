@@ -1,0 +1,83 @@
+<div class="wrapper {{rtl}}">
+  <div class="bac-img">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" >
+          <div class="signup-form">
+            <form [formGroup]="signUpForm">
+              <div class="group">
+                <input formControlName="name" name="name" required type="text">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>{{'Locale.name' | translate}}</label>
+                <div *ngIf="getSignUpForm.name.errors && check" class="alert alert-tranparent"
+                     role="alert" >
+                  {{'Locale.validName' | translate}}
+                </div>
+              </div>
+              <div class="group">
+                <input formControlName="email" name="email" required type="email">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>{{'Locale.email' | translate}}</label>
+                <div *ngIf="getSignUpForm.email.errors && check" class="alert alert-tranparent"
+                     role="alert" >
+                  {{'Locale.validEmail' | translate}}
+                </div>
+                <div *ngIf="emailExist" class="alert alert-tranparent"
+                     role="alert" >
+                  {{'Locale.emailExistMessage' | translate}}
+                </div>
+              </div>
+              <div class="group">
+                <input formControlName="phone" pattern="^01[0-5]\d{1,8}$" maxlength="11" minlength="11" name="phone" required type="tel">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>{{'Locale.phoneNO.' | translate}}</label>
+                <div *ngIf="getSignUpForm.phone.errors && check" class="alert alert-tranparent"
+                     role="alert" >
+                  {{'Locale.validPhoneNo' | translate}}
+                </div>
+                <div *ngIf="phoneExist" class="alert alert-tranparent"
+                     role="alert" >
+                  {{'Locale.existPhoneMessage' | translate}}
+                </div>
+              </div>
+              <div class="group">
+                <input formControlName="password" minlength="6" name="password" required type="password">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>{{'Locale.password' | translate}}</label>
+                <div *ngIf="getSignUpForm.password.errors && check" class="alert alert-tranparent"
+                     role="alert" >
+                  {{'Locale.validPassword' | translate}}
+                </div>
+              </div>
+              <div class="group">
+                <input formControlName="password_confirmation" minlength="6" name="password_confirmation" required type="password">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>{{'Locale.confirmPassword' | translate}}</label>
+                <div *ngIf="(getSignUpForm.password_confirmation.errors || signUpForm.hasError('notSame')) && check " class="alert alert-tranparent"
+                     role="alert" >
+                  {{'Locale.validConfirmPassword' | translate}}
+                </div>
+              </div>
+              <button (click)="signUp()" class="btn btn-success"
+                      type="submit">{{'Locale.signUp' | translate}}</button>
+              <div class="group">
+              <a class="login-link" routerLink="/{{lang}}/login">
+                {{'Locale.login' | translate}}
+              </a>
+              <div class="social-login" (click)="socialSignIn()">
+                {{'Locale.orLoginWith' | translate}}<img src="assets/smart-image/login-face.svg">
+              </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="push"></div>
+</div>

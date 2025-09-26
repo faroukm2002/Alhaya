@@ -1,0 +1,28 @@
+<footer class="footer  {{rtl}}">
+    <div class="container foot-div ">
+      <div>
+        <div><a routerLink="/{{lang}}/Solutions">{{'Locale.smartHome' | translate}}</a></div>
+        <div><a routerLink="/{{lang}}//Products">{{'Locale.products' | translate}}</a></div>
+        <div><a routerLink="/{{lang}}//about">{{'Locale.aboutUs' | translate}}</a></div>
+        <div><a routerLink="/{{lang}}//contact">{{'Locale.contactUs' | translate}}</a></div>
+      </div>
+        <div  class="img-svg">
+          <a href="{{settings.facebook}}" target="_blank"><img alt="facebook page" src="assets\smart-image\facebook.svg"></a>
+          <a href="{{settings.linkIn}}" target="_blank"><img alt="linkedin page" src="assets\smart-image\linkedin.svg"></a>
+          <a href="{{settings.twitter}}" target="_blank"><img alt="twitter page"  src="assets\smart-image\twitter.svg"></a>
+          <a href="{{settings.instagram}}" target="_blank"><img alt="instagram page" src="assets\smart-image\instagram.svg"></a>
+        </div>
+        <div class="logo-container"><img src="assets/smart-image/logoWhite.png" alt="Alhayat Smart Logo" class="imag-svg"></div>
+    </div>
+    <div class="copyRights">
+      <p class="copy-rights-text">{{"Locale.copyRights" | translate}}</p>
+      <p class="powered-by-text" [innerHTML]="'Locale.poweredBy' | translate"></p>
+    </div>
+<div style="position: absolute; bottom: 10px;">
+
+  <div class="floating-button-div">
+    <a href="tel:00201206569999">  <i class="fas fa-phone-alt circle-phone"></i> </a>
+  </div>
+  <p class="hotline"> {{'Locale.hotLine' | translate }} </p>
+</div>
+</footer>

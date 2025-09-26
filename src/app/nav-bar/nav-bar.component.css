@@ -1,0 +1,412 @@
+.contact-nav {
+  height: 40px;
+  width: 100%;
+  background-color:rgba(1, 88, 128, .80);
+  padding: 8px 20px 9px;
+  POSITION: absolute;
+  top: 0;
+  z-index: 1000;
+  margin: 0;
+  left: 0;
+}
+.contact-nav li {
+  list-style-type: none !important;
+}
+.contact-nav-item-link{
+  color: white !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  font-size: 17px !important;
+  font-family: Raleway-Regular !important;
+}
+.fa-phone-alt,
+.fa-envelope{
+  color: #fff;
+  padding-right: 5px;
+}
+.contact-nav-item img{
+  height:21px !important;
+  margin: 0 15px !important;
+}
+.img-div {
+  display: flex !important;
+  justify-content: flex-end !important;
+  z-index: 3303003030303030;
+}
+.mail-div {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.personal-data img{
+width:40px;
+height:40px;
+margin-right:2px;
+margin-left:11px;
+border-radius:20px;
+background-position:center;
+}
+nav .logo{
+  width: 110px;
+  position: relative;
+  max-width: 110px;
+
+}
+.navbar {
+  z-index:5555;
+  width: 100%;
+  top: 50px;
+  background-color:#fff !important;
+  height: 65px;
+  padding-top: 3px;
+
+}
+.navbar-scrolled {
+  top: 0;
+  transition: all 200ms ease-in-out;
+  height: 55px;
+  z-index: 4444;
+  padding-top: 5px;
+}
+.navbar-scrolled #navbarSupportedContent {
+  padding-top: 5px;
+}
+.navbar-scrolled .main-navigation {
+  padding-top: 4px;
+}
+.logo-scrolled {
+  max-width: 90px !important;
+  width: 90px !important;
+}
+nav{
+  font-family:Raleway-Regular;
+}
+nav .icon-shop{
+width: 23px;
+cursor: pointer;
+}
+.count-num{
+  background-color: #01B0FF;
+  position: absolute;
+  /* padding: 5px 5px; */
+  border-radius: 50%;
+  color: #fff;
+  right: 2px;
+  font-family: JosefinSans-SemiBold;
+  width: 25px;
+  text-align: center;
+  height: 25px;
+  top: -10px;
+  padding-top: 1px;
+}
+.circle-icon{
+width: 25px;
+height: 25px;
+background-color: #01B0FF;
+position: relative;
+top: -34px;
+right: -25px;
+color: #fff;
+display: block;
+padding-left: 7px;
+border-radius: 50%;
+}
+.navbar-nav{
+position: relative;
+}
+nav a {
+display: inline-block;
+color: #000000;
+text-align: center;
+
+text-decoration: none;
+font-size: 17px;
+border-bottom: 3px solid transparent;
+font-family:Raleway-Regular;
+}
+nav a:hover:after{
+  content: "";
+  position: absolute;
+  width: 30px;
+  display: block;
+  height: 1px;
+  padding-top: 3px;
+  border-bottom: 3px solid #01B0FF;
+transition: width 1s ease-in;
+}
+#homeLink:hover:after{
+  display: none;
+}
+.navbar-light .navbar-nav .nav-link {
+  color:#000000;
+  cursor: pointer;
+}
+.main-navigation {
+  text-align: center;
+}
+#navbarSupportedContent, .last-nav{
+  padding-right: 0;
+  z-index: 3303003030303030;
+}
+.last-nav{
+  display: inline-block;
+  text-align: right;
+}
+.last-nav .nav-item{
+  position: relative;
+  display: inline-block;
+  max-width: 80px;
+}
+.last-nav .basket-icon{
+  padding-right: 15px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.btn {
+  line-height: .5;
+  padding-left: 0;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  box-shadow: 0px 3px 6px rgba(36,182,247, .20);
+  border-radius: 0;
+  border: none;
+  margin-left: -3px;
+  cursor: pointer;
+  min-width: 200px;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu a {
+  color:#6897B1;
+  font-family:Raleway-Regular;
+  font-size: 15px;
+  padding-left: 10px;
+  text-align: left;
+  padding-right: 7px;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu a:hover, .navbar-expand-lg .navbar-nav .dropdown-menu a:focus{
+  color:white;
+  background: #6897B1;
+}
+.dropdown-toggle::after {
+  border:none;
+  margin-left: 0;
+  display: block;
+  vertical-align:0px;
+}
+.dropdown-toggle::before{
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  position: absolute;
+  right: -6px;
+  margin-top: 10px;
+}
+.dropdown-divider{
+  margin: 0 0 11px 0;
+}
+.btn-group .btn-group {
+  display: block;
+  width: 100%;
+}
+.btn-group .btn-group .dropdown-toggle::before{
+  right: 5px;
+}
+.rtl a {
+  font-family:expo-bold;
+  font-size: 15px;
+  color: #4A4A4A;
+}
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+.rtl .last-nav{
+  text-align: left;
+}
+.rtl #navbarSupportedContent{
+  direction:rtl;
+}
+.rtl a:hover:after{
+  display: none;
+}
+.rtl .dropdown-toggle::before{
+  display: none;
+}
+.rtl a:hover:after{
+  content: "";
+  position: absolute;
+  width: 30px;
+  display: block;
+  height: 1px;
+  padding-top: 3px;
+  border:none;
+  border-bottom: 3px solid #01B0FF;
+  transition: width 1s ease-in;
+  right: auto;
+  margin-top: 0;
+  bottom: 4px;
+}
+.rtl .dropdown-toggle::after, .rtl .dropdown-toggle:hover:after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  position: absolute;
+  left: -10px;
+  width: auto;
+  margin-top: 10px;
+  top: 8px;
+}
+.rtl .count-num{
+  right: auto;
+  left: 0px;
+  font-family: Raleway-Regular;
+}
+.rtl .last-nav .basket-icon{
+  padding-left: 15px;
+  padding-right: 0px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.rtl .dropdown-menu a{
+   text-align: right!important;
+ }
+.rtl .dropdown-menu a::after{
+  left: 0;
+}
+.navbar-collapse.show{
+  position: absolute;
+  width: 100%;
+  text-align: right;
+  max-width: initial;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin-top: 62px;
+  display: block;
+  background: white;
+  height: 207px!important;
+}
+@media (max-width: 991px) {
+  .navbar-collapse{
+    position: absolute;
+    transition: none;
+  }
+  .dropdown-toggle::before{
+    right: -13px;
+  }
+  .last-nav, .rtl .last-nav {
+    text-align: center;
+  }
+  .last-nav .nav-item{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+  }
+  .rtl .dropdown-toggle::after, .rtl .dropdown-toggle:hover:after{
+    left:-16px
+  }
+  .personal-data .dropdown-menu {
+    margin-top: 14px!important;
+    padding: 0;
+  }
+  .contact-nav{
+    padding: 7px 3px 9px
+  }
+  .contact-nav-item img {
+    margin: 0 5px;
+  }
+  .navbar-scrolled{
+    height: 70px;
+  }
+}
+@media (max-width:780px) {
+  .img-div {
+    display: none!important;
+  }
+}
+@media (max-width:570px) {
+  .mail-div {
+    display: none!important;
+  }
+  .contact-nav-item{
+    text-align: center;
+  }
+}
+.last-nav .personal-data {
+  max-width: initial;
+  margin-right: 8px;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.rtl .last-nav .personal-data {
+  margin-right: 0px;
+  margin-left: 8px;
+}
+.last-nav .personal-data p {
+  display: inline-block;
+}
+.user-image {
+  display: inline-block;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
+
+}
+.personal-data a {
+  display: block;
+  text-align: center!important;
+  border-bottom: solid 1px;
+  padding-bottom: 12px;
+  margin-bottom: 0px!important;
+  padding-top: 15px;
+  font-family:Raleway-Regular;
+}
+.personal-data::before{
+  right: auto;
+  margin-top: 24px;
+  left: -19px;
+}
+.rtl .personal-data::after, .rtl .personal-data:hover:after {
+  left: auto;
+  right: -15px;
+  top: 13px;
+}
+.rtl .personal-data a {
+  text-align: center!important;
+  font-family: expo-bold!important;
+}
+.personal-data .dropdown-menu {
+  margin-top: 0!important;
+  padding: 0;
+}
+.personal-data a:hover:before,.personal-data a:hover:after {
+  display: none;
+}
+.personal-data a:hover{
+background:#6897B1 ;
+  color:white!important;
+}
+.personal-data .dropup,  .personal-data .dropright, .personal-data .dropdown, .personal-data .dropleft{
+  position: absolute;
+}
+.last-nav .basket-icon a:hover:after, .last-nav .basket-icon a:hover:before{
+display: none;
+}

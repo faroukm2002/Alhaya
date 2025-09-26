@@ -1,0 +1,11 @@
+<svg id="_025-instagram" data-name="025-instagram" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27.705" height="27.705" viewBox="0 0 27.705 27.705">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#b5d1ed"/>
+    </linearGradient>
+  </defs>
+  <path id="Path_15" data-name="Path 15" d="M4.058,27.7H23.647A4.063,4.063,0,0,0,27.7,23.647V4.058A4.063,4.063,0,0,0,23.647,0H4.058A4.063,4.063,0,0,0,0,4.058V23.647A4.063,4.063,0,0,0,4.058,27.7ZM1.623,4.058A2.438,2.438,0,0,1,4.058,1.623H23.647a2.438,2.438,0,0,1,2.435,2.435V23.647a2.438,2.438,0,0,1-2.435,2.435H4.058a2.438,2.438,0,0,1-2.435-2.435Zm0,0" fill="url(#linear-gradient)"/>
+  <path id="Path_16" data-name="Path 16" d="M128.3,135.61a7.3,7.3,0,1,0-7.3-7.3A7.313,7.313,0,0,0,128.3,135.61Zm0-12.987a5.682,5.682,0,1,1-5.682,5.682A5.688,5.688,0,0,1,128.3,122.623Zm0,0" transform="translate(-114.453 -114.453)" fill="url(#linear-gradient)"/>
+  <path id="Path_17" data-name="Path 17" d="M363.435,65.87A2.435,2.435,0,1,0,361,63.435,2.438,2.438,0,0,0,363.435,65.87Zm0-3.247a.812.812,0,1,1-.812.812A.813.813,0,0,1,363.435,62.623Zm0,0" transform="translate(-341.466 -57.699)" fill="url(#linear-gradient)"/>
+</svg>

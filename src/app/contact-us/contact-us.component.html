@@ -1,0 +1,97 @@
+<section class="wrapper contact-us-section {{rtl}}">
+  <div class="box-contact">
+    <div class="container">
+      <h1>{{'Locale.contactUs' | translate}}</h1>
+      <form [formGroup]="contactUs">
+        <div class="row">
+          <div class=" col-md-6 col-lg-6">
+            <div class="form-group">
+              <input type="text" class="form-control" name="name"
+                     required formControlName="name" placeholder="{{'Locale.name' | translate}}">
+              <div *ngIf="getContactForm.name.errors && check" class="alert-tranparent">
+                {{"Locale.validName" | translate}}
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email"
+                     required formControlName="email" placeholder="{{'Locale.email' | translate}}">
+              <div *ngIf="getContactForm.email.errors && check" class="alert-tranparent">
+                {{ "Locale.validEmail" | translate}}
+              </div>
+
+            </div>
+            <div class="form-group">
+              <input type="tel" class="form-control" name="phone" maxlength="11" minlength="11"
+                     required formControlName="phone" placeholder="{{'Locale.phoneNumber' | translate}}">
+              <div *ngIf="getContactForm.phone.errors && check" class="alert-tranparent">
+                {{"Locale.validPhoneNo" | translate}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6">
+                <textarea class="form-control" name="message" required formControlName="message"
+                          placeholder="{{'Locale.textHere' | translate}}...."></textarea>
+            <div *ngIf="getContactForm.message.errors && check" class="alert-tranparent">
+              {{"Locale.validMessage" | translate}}
+            </div>
+          </div>
+          <div class="col text-center">
+            <button (click)="sendData()" type="submit" class="btn btn-primary">
+              {{'Locale.send' | translate}}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="last-box">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div>
+            <p>{{'Locale.email' | translate}} :</p> <span><a
+            href="mailto:{{settings.email}}">{{settings.email}}</a></span>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div>
+            <p>{{'Locale.address' | translate}} :</p> <span>{{settings.address}}</span>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div>
+            <p>{{'Locale.phoneNumber' | translate}} :</p> <span> <a href="tel:{{settings.phone}}">{{settings.phone}}</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+
+  <ng-template #successModal let-modal>
+    <div class="modal-header">
+      <div class="icon-box">
+        <img src="assets/smart-image/check_icon_w.svg">
+      </div>
+      <button type="button" class="close" (click)="modal.close('Close click')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body {{rtl}}">
+      <h4>{{"Locale.thankYou" | translate }}!</h4>
+      <p>{{"Locale.thankYouMessage" | translate }}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary success" (click)="modal.close('Close click')"
+              routerLink="/{{lang}}">{{"Locale.home" | translate}}</button>
+    </div>
+  </ng-template>
+</section>
+
+
+
+
+
+

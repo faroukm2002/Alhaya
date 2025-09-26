@@ -1,0 +1,215 @@
+<section (click)="closeMenu()" class="wrapper products-section {{rtl}}">
+  <div class="row info-row">
+    <div class="col-lg-3 col-md-3 col-sm-4 info-col-one {{animatedMenu}}">
+      <div class="info">
+        <div class=" product-filter" >
+          <div (click)="$event.stopImmediatePropagation(); isCollapsed3 = !isCollapsed3">
+            <a class=" dropdown-toggle filter-title" role="button" id="dropdownProducts">
+              {{'Locale.allCategories' | translate}}
+            </a> <img src="assets/smart-image/Icon_Arrow-Down.svg">
+            <div>
+              <div *ngIf="isCollapsed3"  >
+                <div *ngFor="let category of categories; let i = index" class="mainCatContainer" (click)="$event.stopImmediatePropagation();Collaps('parent', i )">
+                  <div class="main-caitegory" routerLink="/{{lang}}/products/{{category.id}}-{{category.name}}" routerLinkActive="routerLinkActive">
+                    {{category.name}}</div>
+                  <div>
+                    <div *ngIf="i === expandedIndex1" (click)="$event.stopImmediatePropagation();" >
+                      <div *ngFor="let category2 of category.categories; let $index=index; " class="subCatContainer"  (click) = "Collaps('child', $index)">
+                        <a class="sub-caitegory" routerLink="/{{lang}}/products/{{category2.id}}-{{category2.name}}" routerLinkActive="routerLinkActive">{{category2.name}}  </a>
+                            <div *ngFor="let category3 of category2.categories; let ind = index">
+                              <span #id style="display:none;"> {{category3.name}}</span>
+                              <div *ngIf="$index === expandedIndex">
+                              <div class="miniCatContainer">
+                              <a class="mini-caitegory" routerLink="/{{lang}}/products/{{category3.id}}-{{category3.name}}" routerLinkActive="routerLinkActive"> {{category3.name}} </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-filter">
+          <div [attr.aria-expanded]="!isCollapsed" (click)="$event.stopImmediatePropagation(); isCollapsed = !isCollapsed">
+            <h5>{{'Locale.Brands' | translate}}</h5><img alt="drop down arrow" src="assets/smart-image/Icon_Arrow-Down.svg">
+            <p>{{selectedBrandsString || "Locale.allBrands" | translate}} </p>
+          </div>
+          <div class="choose-check" #navbar="ngbCollapse" [ngbCollapse]="isCollapsed">
+            <div *ngFor="let brand of brands; let i = index" class="form-check">
+              <input (click)="selectBrand(i)" class="form-check-input cbx" type="checkbox" [checked]="false" id="brand{{brand.id}}" [(ngModel)]="brand.check">
+              <label class="form-check-label" for="brand{{brand.id}}">
+                {{brand.name}}
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="product-filter">
+          <div [attr.aria-expanded]="!isCollapsed" (click)="$event.stopImmediatePropagation(); isCollapsed2 = !isCollapsed2">
+            <h5 style="cursor: pointer">{{'Locale.Price' | translate}}</h5><img src="assets/smart-image/Icon_Arrow-Down.svg">
+            <p>{{"Locale.currency" | translate}} {{priceRange.lower}} - {{"Locale.currency" | translate}} {{priceRange.upper}} </p>
+          </div>
+          <div #navbar="ngbCollapse" class="slider-container" [ngbCollapse]="isCollapsed2">
+            <igx-slider (onValueChange)="updatePriceRange($event)" id="slider" [type]="sliderType.RANGE" [minValue]="0" [maxValue]="maxPrice" [lowerBound]="1" [upperBound]="maxPrice" [(ngModel)]="priceRange"></igx-slider>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-12 info-col-tow">
+      <div class="products-content">
+        <div class="container-fluid">
+          <h1 class="product-title">{{categoryName || "Locale.allProducts" | translate}}</h1>
+          <div class="box-navs">
+            <div class="search-input">
+              <input [(ngModel)]="searchInput" type="text" (ngModelChange)="searchByText($event)" class="form-control" placeholder="{{'Locale.searchProduct' | translate}}">
+            </div>
+            <div class="number-of-products">
+              <h2>{{totalProducts}} {{"Locale.products" | translate }}</h2>
+            </div>
+            <div class="categories smart-sort">
+              <div class="btn-group " ngbDropdown #myDrop2="ngbDropdown">
+                <a class="nav-link dropdown-toggle" role="button" id="dropdownSort" ngbDropdownToggle>
+                  {{sortByText || 'Locale.sortBy' | translate}}
+                </a>
+                <div ngbDropdownMenu aria-labelledby="dropdownSort">
+                  <a ngbDropdownItem (click)="myDrop2.close();sortByFn('best')">{{'Locale.best' | translate}}</a>
+                  <a ngbDropdownItem (click)="myDrop2.close();sortByFn('low')">{{'Locale.low' | translate}}</a>
+                  <a ngbDropdownItem (click)="myDrop2.close();sortByFn('high')">{{'Locale.high' | translate}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div (click)="showMenu($event)" class="filter-products"><img src="assets/smart-image/icons8-filter-100.png" /></div>
+            <div class="row products-row" infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-6  product" *ngFor="let product of products; let i = index; trackBy: trackById">
+                <a routerLink="/{{lang}}/products/{{product.category}}/{{product.id}}-{{product.name}} ">
+                  <div class="product-header">
+                    <span class="discount" *ngIf="product.discount">{{product.discount}}%</span></div>
+                  <div class="another-View-style">{{'Locale.New' | translate}}</div>
+                  <div [style.background-image]="'url(' + product.image + ')'" class="product-image">
+                    <div class="product-overlay"></div>
+                    <img alt="{{product.name}}" src="{{product.image}}">
+                  </div>
+                  <div class="View-style">{{'Locale.View' | translate}}</div>
+                  <div class="text-swipe">
+                    <h2 class="p-title">{{product.name}}</h2>
+                    <p class="type">{{product.brand}}</p>
+                    <span *ngIf="product.priceBeforeDiscount" class="dis-count" style="color:#E80057;">{{product.priceBeforeDiscount}} {{"Locale.currency" | translate}}
+                      -</span><span>{{product.price}} {{"Locale.currency" | translate}}</span>
+                  </div>
+                </a>
+              </div>
+              <div class="col-12" *ngIf="nextPage || loading">
+                <div class="products-loading"><img src="assets/smart-image/loading.svg" />
+                  <p>{{"Locale.loading"| translate}}</p>
+                </div>
+              </div>
+              <!-- <div class="img-rowsss"  [style.background-image]="'url('+ product.image+')'">
+     <div class="product-overlay">  <img alt="{{product.name}}" src="{{product.image}}"></div>
+     <div class="View-style"><a routerLink="/{{lang}}/products">{{'Locale.View' | translate}}</a></div>
+     <div class="Frame">
+       <div class="product-header" >
+         <span class="discount" *ngIf="product.discount">{{product.discount}}%</span>
+         <span  class="like-icon">{{product.brand}}</span></div>
+       <div class="product-footer">
+         <h5 ><a routerLink="/{{lang}}/products">{{product.name}}</a></h5>
+         <span class="product-discount-price" *ngIf="product.priceBeforeDiscount">{{product.priceBeforeDiscount}} {{'Locale.currency' | translate}}</span>
+         <span class="product-price"><p>{{product.price}} {{'Locale.currency' | translate}}</p><img src="assets/smart-image/cart-icon.svg"></span>
+       </div>
+     </div>
+   </div>-->
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 50px"> </div>
+  <ng-template #productModal let-modal>
+    <div class="modal-header {{rtl}}">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <h5 class="modal-title">{{this.product.category}}</h5>
+          </div>
+        </div>
+      </div>
+      <button type="button" routerLink="/{{lang}}/products/{{categoryId}}{{categoryName? '-' : ''}}{{categoryName}}" class="close" (click)="modal.close('Close click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body {{rtl}}">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="row">
+              <div class="col">
+                <div class="swiper-container products-images-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide " [style.background-image]="'url(' + image + ')'" *ngFor="let image of product.images" #imagesSwiper>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination product-pagination"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col product-data">
+                <h1>{{this.product.name}}</h1>
+                <h2>{{this.product.model}}</h2>
+                <h3>{{this.product.brand}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 product-description">
+            <div class="row">
+              <div class="col-lg-12"><label>{{"Locale.description" | translate}} :</label></div>
+              <div class="col-lg-12">
+                <p>{{product.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer {{rtl}}">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6  col-md-6 col-12 " style="text-align: center">
+            <div class="product-quantity">
+              <label>{{"Locale.quantity" | translate}}</label>
+              <div>
+                <button (click)="increaseQuantity()">+</button>
+                <p>{{product.quantity}}</p><button (click)="decreaseQuantity()">-</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6  col-md-6 col-12 total-price">
+            <div>{{"Locale.subTotal" | translate}} : <span>{{product.quantity}} x {{"Locale.currency" | translate}} {{product.price}}</span></div>
+            <div>{{"Locale.total" | translate}} : <span>{{"Locale.currency" | translate}} {{product.quantity * product.price}}</span></div>
+          </div>
+          <div class="col-lg-12  col-md-12 col-12 text-center add-to-cart">
+            <button routerLink="/{{lang}}/products/{{categoryId}}{{categoryName? '-' : ''}}{{categoryName}}" (click)="modal.close();addToCart()" type="button" class="btn btn-info"><img alt="cart icon" src="assets/smart-image/cart-icon.svg"> {{"Locale.addToCart" | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #successModal let-modal2>
+    <div class="modal-header">
+      <button type="button" class="close" (click)="modal2.close('Close click')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body {{rtl}}">
+      <h4>{{"Locale.thankYou" | translate }}!</h4>
+      <p>{{"Locale.thankYouMessageCart" | translate }}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary success" (click)="modal2.close('Close click')" routerLink="/{{lang}}/cart">{{"Locale.goToBasket" | translate}}</button>
+      <button type="button" class="btn btn-primary success" (click)="modal2.close('Close click')">{{"Locale.continueShopping" | translate}}</button>
+    </div>
+  </ng-template>
+</section>

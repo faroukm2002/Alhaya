@@ -1,0 +1,142 @@
+
+/**{*/
+/*direction: rtl;*/
+/*}*/
+
+
+/*section{*/
+/*min-height: 715px;*/
+/*background-color:#F0F0F0;*/
+/*}*/
+
+/*.box-contact{*/
+/*width: 100%;*/
+/*height: 697px;*/
+/*display: flex;*/
+/*align-items:center;*/
+/*}*/
+
+/*.box-contact h1{*/
+/*margin-bottom: 10px;*/
+/*text-align: center;*/
+/*font-family: Raleway-Regular;*/
+/*}*/
+
+
+/*.box-contact .title-par{*/
+/*text-align: center;*/
+/*margin-right: auto;*/
+/*margin-left: auto;*/
+/*max-width: 555px;*/
+/*margin-bottom: 28px;*/
+/*color:#434343;*/
+/*font-family:Raleway-Regular;*/
+/*}*/
+
+/*.about-text{*/
+/*text-align:center;*/
+/*color:#434343;*/
+/*font-family:Raleway-Regular;*/
+/*}*/
+
+/*.line{*/
+/*display: block;*/
+/*width: 100px;*/
+/*height: 3px;*/
+/*background-color:#01B0FF;*/
+/*margin-right: auto;*/
+/*margin-left: auto;*/
+/*margin-top: 15px;*/
+/*}*/
+
+
+
+/*.slide{*/
+/*height:360px;*/
+/*background-color:#01B0FF;*/
+/*margin-top:40px;*/
+/*}*/
+
+
+/*.slide .swip{*/
+/*position:relative;*/
+/*width:100%;*/
+/*height:100%;*/
+/*top: -30px;*/
+/*left: 30px;*/
+/*}*/
+
+/*.slide p{*/
+/*color: #fff;*/
+/*position: absolute;*/
+/*bottom: 0;*/
+/*margin-bottom: 3px;*/
+/*right: 55px;*/
+/*font-family:Raleway-Regular;*/
+/*}*/
+
+
+/*@media screen and (max-width:786px) {*/
+/*.col-slid{*/
+/*margin-top: 32px;*/
+/*}*/
+
+/*.slide{*/
+/*height: 360px;*/
+/*background-color: #01B0FF;*/
+/*margin-right: auto;*/
+/*margin-top: 40px;*/
+/*margin-left: auto;*/
+/*max-width: 400px;*/
+/*}*/
+/*}*/
+
+
+/*.swiper-container {*/
+/*width: 100%;*/
+/*height: 100%;*/
+/*}*/
+/*.swiper-slide {*/
+/*text-align: center;*/
+/*font-size: 18px;*/
+/*display: -webkit-box;*/
+/*display: -ms-flexbox;*/
+/*display: -webkit-flex;*/
+/*display: flex;*/
+/*-webkit-box-pack: center;*/
+/*-ms-flex-pack: center;*/
+/*-webkit-justify-content: center;*/
+/*justify-content: center;*/
+/*-webkit-box-align: center;*/
+/*-ms-flex-align: center;*/
+/*-webkit-align-items: center;*/
+/*align-items: center;*/
+/*}*/
+/*.one{*/
+/*background-image:url('src/assets/smart-image/brooke-lark-W1B2LpQOBxA-unsplash.jpg');*/
+/*background-position:center;*/
+/*background-size:cover;*/
+/*}*/
+/*.tow{*/
+/*background-image:url('src/assets/smart-image/william-bayreuther-pM4fy8F_FHo-unsplash.jpg');*/
+/*background-position:center;*/
+/*background-size:cover;*/
+/*}*/
+
+/*.three{*/
+/*background-position:center;*/
+/*background-size:cover;*/
+/*}*/
+
+
+
+
+
+
+
+/*.swiper-pagination-bullets{*/
+/*    opacity: 1;*/
+
+/*    left: 10px !important;*/
+/*    right:auto !important;*/
+/*}*/

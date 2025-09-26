@@ -1,0 +1,203 @@
+<section class="wrapper solution-section {{rtl}}">
+  <div *ngIf="phase !== 6" class="container-fluid">
+    <div class="row solution-div">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 co-img-one">
+        <div class="below-co-one"></div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 solution-column">
+        <div *ngIf="phase===1" class="solution-form">
+          <h1>{{'Locale.solutionFirstTitle' | translate}}</h1>
+          <div class="solution-box">
+            <form autocomplete="off" [formGroup]="solutionForm">
+              <h5>{{'Locale.infoTitle1' | translate}}</h5>
+              <div class="group">
+                <input type="text" required formControlName="name">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>{{'Locale.name' | translate}}</label>
+                <div *ngIf="getSolutionForm.name.errors && check" class="alert alert-tranparent" role="alert">
+                  {{'Locale.validName' | translate}}
+                </div>
+              </div>
+              <div class="group">
+                <input type="tel" pattern="^01[0-5]\d{1,8}$" required formControlName="phone" maxlength="11" minlength="11">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>{{'Locale.phoneNumber' | translate}}</label>
+                <div *ngIf="getSolutionForm.phone.errors && check" class="alert alert-tranparent" role="alert">
+                  {{'Locale.validPhoneNo' | translate}}
+                </div>
+              </div>
+              <div class="group">
+                <input type="email" name="email" required formControlName="email">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>{{'Locale.email' | translate}}</label>
+                <div *ngIf="getSolutionForm.email.errors && check" class="alert alert-tranparent" role="alert">
+                  {{'Locale.validEmail' | translate}}
+                </div>
+              </div>
+              <h5>{{'Locale.infoTitle2' | translate}}</h5>
+              <div class="second-title">
+                <p class="p-rooms">{{'Locale.noOfRooms' | translate}}</p>
+                <div class="count">
+                  {{noOfRooms}}
+                  <div class="add" (click)="increaseRooms()">+</div>
+                  <div class="minus" (click)="decreaseRooms()">-</div>
+                </div>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input cbx" type="checkbox" [checked]="false" id="reception" formControlName="reception">
+                <label class="form-check-label" for="reception">
+                  {{"Locale.reception" | translate}}
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input cbx" type="checkbox" [checked]="false" id="landScape" formControlName="landScape">
+                <label class="form-check-label" for="landScape">
+                  {{"Locale.landScape" | translate}}
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input cbx" type="checkbox" [checked]="false" id="kitchen" formControlName="kitchen">
+                <label class="form-check-label" for="kitchen">
+                  {{"Locale.kitchen" | translate}}
+                </label>
+              </div>
+              <div class="col buttons-container">
+                <button (click)="submitFirstPhase()" type="button" class="btn btn-success">{{'Locale.next' | translate}}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div *ngIf="currentRoomNumber <= noOfRooms && phase ===2" class="solution-form">
+          <h1>{{'Locale.chooseFeatures' | translate}}</h1>
+          <h5>{{'Locale.room' | translate}}{{currentRoomNumber}}</h5>
+          <div *ngFor="let room of roomFeatures[currentRoomNumber-1]; let i = index" class="form-check">
+            <input class="form-check-input cbx" type="checkbox" [checked]="false" [(ngModel)]="room.value" id="roomFeature{{i}}">
+            <label class="form-check-label" for="roomFeature{{i}}">
+              {{room.name}}
+            </label>
+          </div>
+          <div class="col buttons-container">
+            <p (click)="backPhase()">{{'Locale.back' | translate}}</p>
+            <button (click)="submitSecondPhase()" type="button" class="btn btn-success">{{'Locale.next' | translate}}</button>
+          </div>
+        </div>
+        <div *ngIf=" phase ===3" class="solution-form">
+          <h1>{{'Locale.chooseFeatures' | translate}}</h1>
+          <h5>{{'Locale.reception' | translate}}</h5>
+          <div *ngFor="let reception of receptionFeatures; let i = index" class="form-check">
+            <input class="form-check-input cbx" type="checkbox" [checked]="false" [(ngModel)]="reception.value" id="receptionFeature{{i}}">
+            <label class="form-check-label" for="receptionFeature{{i}}">
+              {{reception.name}}
+            </label>
+          </div>
+          <div class="col buttons-container">
+            <p (click)="backPhase()">{{'Locale.back' | translate}}</p>
+            <button (click)="submitThirdPhase()" type="button" class="btn btn-success">{{'Locale.next' | translate}}</button>
+          </div>
+        </div>
+        <div *ngIf=" phase ===4" class="solution-form">
+          <h1>{{'Locale.chooseFeatures' | translate}}</h1>
+          <h5>{{'Locale.kitchen' | translate}}</h5>
+          <div *ngFor="let kitchen of kitchenFeatures; let i = index" class="form-check">
+            <input class="form-check-input cbx" type="checkbox" [checked]="false" [(ngModel)]="kitchen.value" id="kitchenFeature{{i}}">
+            <label class="form-check-label" for="kitchenFeature{{i}}">
+              {{kitchen.name}}
+            </label>
+          </div>
+          <div class="col buttons-container">
+            <p (click)="backPhase()">{{'Locale.back' | translate}}</p>
+            <button (click)="submitFourthPhase()" type="button" class="btn btn-success">{{'Locale.next' | translate}}</button>
+          </div>
+        </div>
+        <div *ngIf=" phase ===5" class="solution-form">
+          <h1>{{'Locale.chooseFeatures' | translate}}</h1>
+          <h5>{{'Locale.landScape' | translate}}</h5>
+          <div *ngFor="let landscape of landscapeFeatures; let i = index" class="form-check">
+            <input class="form-check-input cbx" type="checkbox" [checked]="false" [(ngModel)]="landscape.value" id="landscapeFeature{{i}}">
+            <label class="form-check-label" for="landscapeFeature{{i}}">
+              {{landscape.name}}
+            </label>
+          </div>
+          <div class="col buttons-container">
+            <p (click)="backPhase()">{{'Locale.back' | translate}}</p>
+            <button (click)="submitFeatures()" type="button" class="btn btn-success">{{'Locale.next' | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="phase === 6" class="sec-success">
+    <div class="success">
+      <div class="container">
+        <h1>{{'Locale.avilableSolutions' | translate}}</h1>
+        <div class="success-container">
+          <div class="box-success" *ngFor="let solution of solutions">
+            <div class="head-box">
+              <p>{{solution.price}} {{"Locale.currency" | translate}}</p>
+              <p>{{solution.name}}</p>
+            </div>
+            <div class="body-box">
+              <div *ngFor="let feature of solution.features">
+                <div class="right-feature" *ngIf="feature.state"><span class="material-icons">done</span>
+                  <p>{{feature.name}}</p>
+                </div>
+                <div class="wrong-feature" *ngIf="!feature.state"><span class="material-icons">close</span>
+                  <p>{{feature.name}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col buttons-container">
+              <button (click)="knowMore()" type="button" class="btn btn-success">{{'Locale.knowMore' | translate}}</button>
+            </div>
+          </div>
+        </div>
+        <div class="col buttons-container calculateBtn">
+          <button (click)="calculateAgain()" type="submit" class="btn btn-primary">{{'Locale.calculateAgain' | translate}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec-box">
+    <div class="container">
+      <div class="box-project">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 box-project-img">
+            <div class="im-box"></div>
+          </div>
+          <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 co-tow-project">
+            <div class="another-style">
+              <h5>{{'Locale.Why We Are Afraid to Tell the Truth about Project Failures' | translate}}</h5>
+              <p class="p-date">{{'Locale.February 15, 2010' | translate}}</p>
+              <p class="p-title">Since 1994, the Standish Group has been conducting bi-annual studies of
+                IT projects and the success and failure rates for those projects. Dubbed the
+                Chaos Studies, the research is widely quoted as the industry standard
+                (though recently there is some criticism of the data).
+                IT projects and the success and failure rates for those projects. Dubbed the
+                Chaos Studies, the research is widely quoted as the industry standard
+                (though recently there is some criticism of the data).
+              </p>
+              <div class="displ"></div>
+              <button class="btn btn-default">{{'Locale.Read more' | translate}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ----------------------------------------------------- --------------------------------------------------- ---------------------------------------------------------- -->
+<h1 class="brands-heading">{{'Local.OurPartners' | translate }}</h1>
+<div class="swiper-container swiper-con">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide swiper-brand-slide"
+         *ngFor="let partnerBrand of brands; let i = index;" [ngStyle]="{'background-image': 'url(' + partnerBrand.logo + ')'}"
+         routerLink="/{{lang}}/products/{{partnerBrand.id}}-{{partnerBrand.name}}"></div>
+  </div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+<!--  ------------------------  ---------------------------------------------------------------- -------------------------------- -------------------------------->

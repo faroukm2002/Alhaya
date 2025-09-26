@@ -1,0 +1,114 @@
+<section class="wrapper profile-section {{rtl}}">
+  <div class="row profile-title">  <h1 class="offset-lg-3 offset-md-3 col-lg-9 col-md-9 col-sm-12">{{'Locale.account' | translate}}</h1></div>
+<div class="row info-row">
+
+<div class="col-lg-3 col-md-3 col-sm-12 info-col-one">
+<div class="info">
+<div class="im-info" (click)="fileInput.click()" [style.background-image]="'url('+user.image+')'">
+<img src="assets/smart-image/cam-icon.svg">
+  <input
+    style="display: none"
+    type="file" (change)="onFileChanged($event)"
+    #fileInput>
+</div>
+<h4>{{user.name}}</h4>
+<p>{{user.city}}, {{"Locale.egypt" | translate}}</p>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-12 info-col-tow">
+<div class="info-conent">
+<div class="container">
+
+<div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <form autocomplete="off" [formGroup]="editProfileForm">
+                    <div class="group">
+                        <input type="text" required formControlName="name">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>{{'Locale.name' | translate}}</label>
+                        <div *ngIf="getProfileEditForm.name.errors && check" class="alert alert-tranparent"
+                            role="alert">
+                            {{'Locale.validName' | translate}}
+                        </div>
+                    </div>
+                    <div class="group">
+                            <input type="text" required formControlName="email">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>{{'Locale.email' | translate}}</label>
+                            <div *ngIf="getProfileEditForm.email.errors && check" class="alert alert-tranparent"
+                                role="alert" >
+                                {{'Locale.validEmail' | translate}}
+                            </div>
+                            <div *ngIf="emailExist" class="alert alert-tranparent" role="alert">
+                                {{'Locale.emailExistMessage' | translate}}
+                            </div>
+                        </div>
+                    <div class="group">
+                        <input type="tel" pattern="^01[0-5]\d{1,8}$" required formControlName="phone" maxlength="11" minlength="11">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>{{'Locale.phoneNumber' | translate}}</label>
+                        <div *ngIf="getProfileEditForm.phone.errors && check" class="alert alert-tranparent"
+                            role="alert" >
+                            {{'Locale.validPhoneNo' | translate}}
+                        </div>
+                    </div>
+                    <div class="group">
+
+                      <div>
+                        <input type="text" required formControlName="address">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>{{'Locale.address' | translate}}</label>
+                        <div *ngIf="getProfileEditForm.address.errors && check" class="alert alert-tranparent"
+                        role="alert" >
+                        {{'Locale.validAddress' | translate}}
+                    </div>
+                      </div>
+                      <div>
+                        <select required formControlName="city_id">
+                          <option disabled value="">{{"Locale.selectCity" | translate}}</option>
+                          <option *ngFor="let choose of city" value="{{choose.id}}">{{choose.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  <div class="group">
+                    <input autocomplete="new-password" type="password" minlength="6"   formControlName="password">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>{{'Locale.password' | translate}} <span>({{"Locale.leaveBlank" | translate}})</span></label>
+                  </div>
+                    <div class="col text-center">
+                        <button (click)="editFunc()" type="submit"
+                            class="btn btn-success">{{'Locale.save' | translate}}</button>
+                    </div>
+                </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+  <ng-template  #successModal let-modal>
+    <div class="modal-header">
+      <div class="icon-box">
+        <img src="assets/smart-image/check_icon_w.svg">
+
+      </div>
+      <button type="button" class="close" (click)="modal.close('Close click')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body {{rtl}}">
+      <h4 *ngIf="imageChanged">{{"Locale.imageChanged" | translate}}</h4>
+      <h4 *ngIf="dataSaved">{{"Locale.dataSaved" | translate}}</h4>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary success" (click)="modal.close('Close click')" routerLink="/{{lang}}">{{"Locale.home" | translate}}</button>
+    </div>
+  </ng-template>
+</section>

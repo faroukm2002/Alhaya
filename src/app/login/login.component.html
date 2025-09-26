@@ -1,0 +1,49 @@
+<div class="wrapper {{rtl}}">
+    <div class="bac-img">
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" >
+                    <div class="login-form">
+                        <div class="group logo-login" style="text-align: center"><img src="assets/smart-image/Logo.png" alt="alhayat smart" width="200px" ></div>
+                        <form [formGroup]="loginForm">
+                            <div class="group">
+                                <input  type="email" name="email" required formControlName="email">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>{{'Locale.email' | translate}}</label>
+                                <div *ngIf="getLoginForm.email.errors && check" class="alert alert-tranparent" role="alert">
+                                    {{'Locale.validEmail' | translate}}
+                                </div>
+                            </div>
+                            <div class="group">
+                                <input type="password" name="password" required formControlName="password">
+                                <div class="f-password">{{'Locale.forgotPassword' | translate}}</div>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>{{'Locale.password' | translate}}</label>
+                              <div *ngIf="errorCerdentials" class="alert alert-tranparent"
+                                   role="alert" >
+                                {{'Locale.errorCerdentials' | translate}}
+                              </div>
+                            </div>
+                            <div class="group">
+                                <button (click)="loginUser()" type="submit"
+                                    class="btn btn-success">{{'Locale.login' | translate}}</button>
+                            </div>
+                          <div class="group">
+                            <a class="login-link" routerLink="/{{lang}}/signup">
+                              {{'Locale.signUpNow' | translate}}
+                            </a>
+                            <div class="social-login" (click)="socialSignIn()">
+                              {{'Locale.orLoginWith' | translate}}<img src="assets/smart-image/login-face.svg">
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  <div class="push"></div>
+</div>

@@ -1,0 +1,29 @@
+<section class="about-us-section {{rtl}}">
+  <div class="box-contact">
+    <div class="container">
+      <h1>{{'Locale.aboutUs' | translate}}</h1>
+      <p class="title-par">{{'Locale.aboutUsInfo' | translate}}
+        <span class="line"></span>
+      </p>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 rtl-text">
+          <div class="about-text" [innerHTML]="description">
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-slid">
+          <div class="slide">
+            <div class="swip">
+              <div class="swiper-container">
+                <div class="swiper-wrapper" >
+                  <div *ngFor="let about of aboutUs" class="swiper-slide" [ngStyle]="{'background-image': 'url(' + about.image + ')'}"> <div> </div> </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <p [innerHTML]="title" class="card-title"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

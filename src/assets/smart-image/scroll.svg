@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="65.5" height="128.5" viewBox="0 0 65.5 128.5">
+  <g id="Group_14" data-name="Group 14" transform="translate(-949 -922)">
+    <g id="icons8-long-arrow-up" transform="translate(985.005 1011.014) rotate(180)">
+      <path id="Path_3" data-name="Path 3" d="M25,1.016,14.309,11.281a1,1,0,0,0,.41,1.684.982.982,0,0,0,.973-.246L24,4.746V88a1,1,0,1,0,2,0V4.746l8.309,7.973a.982.982,0,0,0,.973.246,1,1,0,0,0,.41-1.684Z" fill="#fff"/>
+    </g>
+    <text id="Scroll" transform="translate(1007.5 1050.5) rotate(-90)" fill="#fff" font-size="30" font-family="Raleway" opacity="0.3"><tspan x="0" y="0">Scroll</tspan></text>
+  </g>
+</svg>

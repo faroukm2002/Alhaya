@@ -1,0 +1,244 @@
+
+.bac-img {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  margin-top: 45px;
+}
+
+.bac-img::before {
+  background-image: url("src/assets/smart-image/login.png");
+  background-position: bottom;
+  background-size: cover;
+  width: 100%;
+  content:"";
+  position: absolute;
+  top:0;
+  height:100%;
+}
+.rtl .bac-img {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl .bac-img::before{
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+#passwordtext{
+margin-top: 30px;
+color:#721c24;
+font-size:12px;
+position: absolute
+}
+.login-form .logo-login {
+  margin-bottom: 30px;
+}
+.login-form .group {
+  position: relative;
+  margin-bottom: 45px;
+  width: 100%;
+  max-width: 315px;
+}
+
+.login-form input {
+  background-color: transparent;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border: none;
+  border-bottom: 2px solid rgba(207, 207, 207, 0.8);
+  width: 100%;
+}
+input:focus {
+  outline: none;
+}
+
+.f-password{
+    float:right;
+    margin-top:12px;
+    color:#363636;
+    font-family:Raleway-Regular;
+    font-size: 12px;
+}
+
+
+
+.login-form label {
+  font-family: Raleway-Regular;
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.rtl .login-form label {
+  left: auto;
+  right:5px;
+  font-family: expo-bold;
+}
+/* active state */
+.login-form input:focus ~ label, .login-form input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #01B0FF;
+}
+
+/* BOTTOM BARS ================================= */
+.login-form .bar {
+  position: relative;
+  display: block;
+  width: 300px;
+}
+
+.login-form .bar:before, .login-form .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #01B0FF;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.login-form .bar:before {
+  left: 50%;
+}
+
+.login-form .bar:after {
+  right: 50%;
+}
+
+/* active state */
+.login-form input:focus ~ .bar:before, .login-form input:focus ~ .bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.login-form .highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.login-form .bar {
+  position: relative;
+  display: block;
+  width: 312px;
+}
+
+
+/* active state */
+.login-form input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+.rtl .social-login{
+  font-family: expo-bold;
+}
+.rtl .login-link{
+  font-family: expo-bold;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #01B0FF;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #01B0FF;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@keyframes inputHighlighter {
+  from {
+    background: #01B0FF;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+.login-form {
+  margin-top: 50px;
+}
+.login-form .btn-success {
+  background-color: #01B0FF;
+  font-family: Raleway-Regular;
+  border: none;
+  margin-top: 10px;
+  height: 50px;
+  border-radius: 2px;
+  max-width: 315px;
+  width: 100%;
+  font-size: 18px;
+}
+
+.rtl .login-form .btn-success{
+  font-family: expo-bold;
+}
+
+login-form .btn-success:disabled{
+    color: #fff;
+    background-color:#0fb3dc ;
+    border-color: #0fb3dc;
+    border: #0fb3dc;
+}
+
+.alert-tranparent{
+font-size:12px;
+margin-left: -15px;
+color:#721c24;
+}
+.social-login {
+  text-align:center;
+  margin-top:40px;
+  color:#363636;
+  font-family:Raleway-Regular;
+  cursor: pointer;
+}
+.login-link{
+  cursor: pointer;
+  margin-top:18px;
+  color:#363636;
+  font-family:Raleway-Regular;
+  width:100%;
+  text-align: center;
+  display: block;
+}
+@media (max-width: 600px) {
+  .login-form{
+    text-align: center;
+  }
+  .login-form  .group, .login-link {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
