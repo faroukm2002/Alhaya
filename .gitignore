@@ -1,81 +1,45 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# ========================
-# Angular specific
-# ========================
-/dist
-/tmp
-/out-tsc
-/bazel-out
-
-# ========================
-# Dependencies
-# ========================
+# dependencies
 /node_modules
 /.pnp
-.pnp.*
+.pnp.js
 
-# ========================
-# Environment and Secrets
-# ========================
-/environments/environment.*.ts
-!.environment.example.ts
-*.env
-*.env.*
-!.env.example
-
-# ========================
-# Build and Test
-# ========================
+# testing
 /coverage
-/test-results
-/karma-results.json
-/coverage/
 
-# ========================
-# IDE and Editor Files
-# ========================
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# next.js
+/.next/
+/out/
 
-# VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+# production
+/build
 
-# ========================
-# System Files
-# ========================
+# misc
 .DS_Store
-Thumbs.db
+*.pem
 
-# ========================
-# Logs and Cache
-# ========================
-*.log
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.stencil/
-.angular/
-.cache/
-.parcel-cache/
 
-# ========================
-# Misc
-# ========================
-/.sass-cache
-/connect.lock
-/libpeerconnection.log
-testem.log
-/typings
-.ng_pkg_build/
-.ng_build/
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
